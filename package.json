@@ -1,5 +1,5 @@
 {
-  "name": "MEAN Medical",
+  "name": "MEAN-Medical",
   "main": "server.js",
   "scripts": {
   	"start": "grunt"
