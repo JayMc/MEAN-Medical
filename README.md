@@ -35,11 +35,16 @@ Technologies Used
 
 Directory structure
 ===================
-* root
-..* app
-...* routes.js (configure URLs for REST and static content)
-..* public
-...* src
+/ (MEAN-Medical root)
+| app/ (Node files)
+  |routes.js (configure URLs for REST and static content)
+| node_modules
+| public/ (Node serves this dir to client)
+  |dist/ 
+  |src/ 
+  |css/ 
+  |js/ 
+| views/ (Angular views - managed with UI-Router)
 
 Get started
 ===========
