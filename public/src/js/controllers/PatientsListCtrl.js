@@ -29,7 +29,8 @@ angular.module('PatientsListCtrl', ['ngGrid']).controller('PatientsListCtrl', ['
 				cellClass: 'gridCell',
 				headerClass: 'gridHeader'
 			}
-		] 
+		],
+		multiSelect: false
 	}
 
 	$scope.focusPatient = function(patient){
