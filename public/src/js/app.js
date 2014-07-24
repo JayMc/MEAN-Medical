@@ -1,6 +1,15 @@
 var app = angular.module('app', [
+//routing
 	'ui.router',
 	'appRoutes',
+
+//Restangular
 	'restangular',
-	'RestangularConfig'
+	'RestangularConfig',
+
+//Patients
+	'PatientsListCtrl',
+	'PatientsDetailsCtrl',
+	'PatientsService'
+
 ]);

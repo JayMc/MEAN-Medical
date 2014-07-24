@@ -24,4 +24,4 @@ angular.module('appRoutes',[]).config(['$stateProvider','$urlRouterProvider', fu
 				}
 			}
 		})
-}])
+}]);
