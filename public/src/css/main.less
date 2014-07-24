@@ -23,24 +23,30 @@ li, a, h1, h2, h3, h4, p {
 	background-color: @black;
 }
 
+
 .nav-pills > li > a {
 	background-color: none;
+	.roundBorders;
 }
 .nav-pills > li > a:hover {
 	background-color: @aqua;	
 	color: @darkBlue;
 }
 .nav-pills > li.active,
+.nav-pills > li.active > a,
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
-	background-color: @red;	
-	color: @darkBlue;
+	background-color: transparent !important;
+	color: @black;
 	
-
 	border-radius: 0px;
 	border-bottom-width: 4px; 
 	border-bottom-style: solid;
-	border-color: @red;	
+	border-color: @aqua;	
+}
+
+.nav-pills > li.active {
+	background-color: @black;
 }
 
 .navbar-header > a:hover {
