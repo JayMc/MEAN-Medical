@@ -10,6 +10,8 @@ var app = angular.module('app', [
 //Patients
 	'PatientsListCtrl',
 	'PatientsDetailsCtrl',
-	'PatientsService'
+	'PatientsService',
 
+//ng-grid
+	'ngGrid'
 ]);
