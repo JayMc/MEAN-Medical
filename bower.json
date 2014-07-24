@@ -6,7 +6,8 @@
     "font-awesome": "latest",
     "animate.css": "latest",
     "angular": "~1.2",
-    "angular-route": "latest",
+    "angular-ui-router": "~0.2.10",
+    "restangular": "~1.4.0",
     "lodash": "latest",
     "moment": "~2.7.0",
     "socket.io-client": "1.0.6"
