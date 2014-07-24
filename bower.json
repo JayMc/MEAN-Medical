@@ -1,0 +1,14 @@
+{
+  "name": "MEAN Medical",
+  "version": "1.0.0",
+  "dependencies": {
+    "bootstrap": "latest",
+    "font-awesome": "latest",
+    "animate.css": "latest",
+    "angular": "~1.2",
+    "angular-route": "latest",
+    "lodash": "latest",
+    "moment": "~2.7.0",
+    "socket.io-client": "1.0.6"
+  }
+}
