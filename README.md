@@ -13,16 +13,16 @@ Technologies Used
 
 	Overview
 	--------
-	- Angular 1.2
-	- Node
+	- <database> (unsure at this stage: Mongo(with Mongoose) / MySQL (with Sequelize) / FireBase)
 	- Express
-	- 
+	- AngularJS 1.2
+	- Node.js
 
 	Server side
 	-----------
-	- bower (for client side package management)
-	- npm (for server side package management)
-	- grunt (for work flow tasks: js & css minify, css less, nodemon, reduce Angular structure to single js file)
+	- Node.js
+	- Express
+	- lodash
 
 	Client side
 	-----------
@@ -32,6 +32,13 @@ Technologies Used
 	- lodash.js
 	- moment.js
 	- Bootstrap CSS (with collapse)
+	- ng-Grid
+
+	Tools
+	-----
+	- bower (for client side package management)
+	- npm (for server side package management)
+	- grunt (for work flow tasks: js & css minify, css less, nodemon, reduce Angular structure to single js file, live reload)
 
 Directory structure
 ===================
