@@ -9,14 +9,18 @@
 	border-bottom: 1px solid @black;
 }
 .gridHeader {
-	background-color: @white;
+	background-color: @tableHeaderBackgroundColour;
 	color: @black;
 	border-bottom: 1px solid @black;	
 	font-weight: bold;
 }
-.odd {
-	background-color: @blue;
+
+.ngRow.odd {
+	background-color: none;
 }
-.even {
-	background-color: @blue2;
+.ngRow.odd {
+	background-color: @tableRowOddBackgroundColour !important;
+}
+.ngRow.even {
+	background-color: @tableRowEvenBackgroundColour !important;
 }

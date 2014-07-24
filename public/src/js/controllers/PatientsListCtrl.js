@@ -8,6 +8,22 @@ angular.module('PatientsListCtrl', ['ngGrid']).controller('PatientsListCtrl', ['
 			name: 'Bill',
 			age: 25
 		},
+		{
+			name: 'Joe',
+			age: 20
+		},
+		{
+			name: 'Bill',
+			age: 25
+		},
+						{
+			name: 'Joe',
+			age: 20
+		},
+		{
+			name: 'Bill',
+			age: 25
+		},
 	];
 
 	$scope.gridOptions = {
