@@ -1,0 +1,48 @@
+/* import Less varibles and mixins */
+@import url("vars.less");
+
+body {
+	.background;
+}
+
+li, a, h1, h2, h3, h4, p {
+	.font;
+}
+
+/*style menu */
+.navbar {
+	background-color: none;
+	border: none;
+}
+
+.navbar-toggle {
+	border-color: @black;
+}
+
+.icon-bar {
+	background-color: @black;
+}
+
+.nav-pills > li > a {
+	background-color: none;
+}
+.nav-pills > li > a:hover {
+	background-color: @aqua;	
+	color: @darkBlue;
+}
+.nav-pills > li.active,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+	background-color: @red;	
+	color: @darkBlue;
+	
+
+	border-radius: 0px;
+	border-bottom-width: 4px; 
+	border-bottom-style: solid;
+	border-color: @red;	
+}
+
+.navbar-header > a:hover {
+	color: @black;	
+}
