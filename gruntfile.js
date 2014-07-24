@@ -47,7 +47,10 @@ module.exports = function(grunt) {
       },
       js: {
         files: ['public/src/js/**/*.js'],
-        tasks: ['jshint', 'uglify']
+        tasks: ['jshint', 'uglify'],
+        options: {
+          livereload: true,
+        }
       }
     },
 
