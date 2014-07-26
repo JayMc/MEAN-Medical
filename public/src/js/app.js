@@ -8,9 +8,12 @@ var app = angular.module('app', [
 	'RestangularConfig',
 
 //Patients
+'Patient',
 	'PatientsListCtrl',
 	'PatientsDetailsCtrl',
 	'PatientsService',
+
+
 
 //ng-grid
 	'ngGrid'
