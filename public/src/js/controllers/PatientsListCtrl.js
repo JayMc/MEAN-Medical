@@ -1,5 +1,5 @@
-angular.module('PatientsListCtrl', ['ngGrid']).controller('PatientsListCtrl', ['$scope', 'PatientsService', function($scope, PatientsService){
-	$scope.patients = [
+angular.module('PatientsListCtrl', ['ngGrid']).controller('PatientsListCtrl', ['$scope', 'PatientsService', 'Patient', function($scope, PatientsService, Patient){
+	/*$scope.patients = [
 		{
 			name: 'Joe',
 			age: 20
@@ -24,18 +24,19 @@ angular.module('PatientsListCtrl', ['ngGrid']).controller('PatientsListCtrl', ['
 			name: 'Bill',
 			age: 25
 		},
-	];
+	];*/
 
 	$scope.gridOptions = {
 		data: 'patients',
 		//selectedItem: 
-		afterSelectionChange: function(rowItem, event){
+		//afterSelectionChange: function(rowItem, event){
+		beforeSelectionChange: function(rowItem, event){
 			$scope.focusPatient(rowItem.entity);
 		},
 		columnDefs: [
 			{
-				field:'name',
-				displayName:'Name',
+				field:'fname',
+				displayName:'Firstname',
 				cellClass: 'gridCell',
 				headerClass: 'gridHeader'
 			},
@@ -51,6 +52,17 @@ angular.module('PatientsListCtrl', ['ngGrid']).controller('PatientsListCtrl', ['
 
 	$scope.focusPatient = function(patient){
 		PatientsService.setCurrentPatient(patient);
+		//console.log();
+		patient.fullname();
+		//patient.over18();
 	}
+
+	$scope.loadPatients = function(){
+		console.log('sdfg');
+		Patient.getList().then(function(patients){
+			$scope.patients = patients;
+		})
+	};
+	$scope.loadPatients();
 
 }]);

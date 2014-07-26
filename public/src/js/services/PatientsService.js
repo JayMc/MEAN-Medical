@@ -8,4 +8,4 @@ angular.module('PatientsService', []).service('PatientsService', ['$rootScope','
 	};
 
 	return service;
-}])
+}]);
