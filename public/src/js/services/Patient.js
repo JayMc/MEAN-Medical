@@ -3,8 +3,7 @@ angular.module('Patient', [])
 	var Patient	= Restangular.service('patients');
 	Restangular.extendModel('patients', function(model){
 		model.fullname = function(){
-			console.log('customer method');
-			console.log(model.fname)
+			return this.fname+' '+this.sname;
 		};
 		model.over18 = function(){
 			if(this.age >= 18){

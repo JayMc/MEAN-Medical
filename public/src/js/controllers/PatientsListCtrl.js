@@ -1,30 +1,14 @@
 angular.module('PatientsListCtrl', ['ngGrid']).controller('PatientsListCtrl', ['$scope', 'PatientsService', 'Patient', function($scope, PatientsService, Patient){
-	/*$scope.patients = [
-		{
-			name: 'Joe',
-			age: 20
-		},
-		{
-			name: 'Bill',
-			age: 25
-		},
-		{
-			name: 'Joe',
-			age: 20
-		},
-		{
-			name: 'Bill',
-			age: 25
-		},
-						{
-			name: 'Joe',
-			age: 20
-		},
-		{
-			name: 'Bill',
-			age: 25
-		},
-	];*/
+
+	$scope.filterOptions = {
+		filterText: ''
+	};
+
+	$scope.testBtn = '<button class="btn btn-default btn-xs" ng-click="testClick(row)">test</button>';
+
+	$scope.testClick = function(row){
+		console.log(row.entity);
+	}
 
 	$scope.gridOptions = {
 		data: 'patients',
@@ -35,19 +19,34 @@ angular.module('PatientsListCtrl', ['ngGrid']).controller('PatientsListCtrl', ['
 		},
 		columnDefs: [
 			{
+				//field:'fullname()',
 				field:'fname',
-				displayName:'Firstname',
+				displayName:'Name',
 				cellClass: 'gridCell',
 				headerClass: 'gridHeader'
 			},
+			/*{
+				//fullname() cannot be filtered on
+				field: 'fullname()',
+				displayName: 'Fullname',
+				cellClass: 'gridCell',
+				headerClass: 'gridHeader'
+			},*/
 			{
 				field:'age',
 				displayName:'Age',
 				cellClass: 'gridCell',
 				headerClass: 'gridHeader'
+			},
+			{
+				displayName: 'Actions',
+				cellTemplate: $scope.testBtn,
+				cellClass: 'gridCell',
+				headerClass: 'gridHeader'
 			}
 		],
-		multiSelect: false
+		multiSelect: false,
+		filterOptions: $scope.filterOptions
 	}
 
 	$scope.focusPatient = function(patient){
