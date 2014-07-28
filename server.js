@@ -1,11 +1,16 @@
 //modules
 var express = require('express');
 var app     = express();
+var mongoose = require('mongoose');
 var _ = require('lodash');
 var http = require('http');
 var server = http.createServer(app);
 
 //config
+var db = require('./config/db.js');
+
+mongoose.connect(db.url);
+
 app.configure(function() {
 	app.use(express.static(__dirname + '/public')); 	// set the static files location /public/img will be /img for users
 	app.use(express.logger('dev')); 					// log every request to the console
