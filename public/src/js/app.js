@@ -12,6 +12,7 @@ var app = angular.module('app', [
 	'PatientsListCtrl',
 	'PatientsDetailsCtrl',
 	'PatientsService',
+	'PatientsAppointmentsCtrl',
 
 
 
