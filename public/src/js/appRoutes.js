@@ -21,6 +21,10 @@ angular.module('appRoutes',[]).config(['$stateProvider','$urlRouterProvider', fu
 				'side@patients': {
 					templateUrl: 'views/patients/details.html',
 					controller: 'PatientsDetailsCtrl'
+				},
+				'bottom@patients': {
+					templateUrl: 'views/patients/appointments.html',
+					controller: 'PatientsAppointmentsCtrl'
 				}
 			}
 		})
