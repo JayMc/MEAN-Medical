@@ -2,6 +2,16 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
 
+    pkg: grunt.file.readJSON('package.json'),
+
+    //tests stuff
+    karma: {
+      unit: {
+        configFile: 'karma.conf.js',
+        //background: true
+      }
+    },
+
     //JS stuff ----------------------------------
     //check all js files for errors
     jshint: {
@@ -66,8 +76,12 @@ module.exports = function(grunt) {
       options: {
         logConcurrentOutput: true
       },
-      tasks: ['nodemon', 'watch']
-    }   
+      tasks: [
+        'karma',
+        'nodemon',
+        'watch'
+      ]
+    }
 
   });
 
@@ -78,7 +92,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-concurrent');
+  grunt.loadNpmTasks('grunt-karma');
 
-  grunt.registerTask('default', ['less', 'cssmin', 'jshint', 'uglify', 'concurrent']);
+  grunt.registerTask('default', [ 'less', 'cssmin', 'jshint', 'uglify', 'concurrent']);
 
 };
