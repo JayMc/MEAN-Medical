@@ -13,9 +13,7 @@ var app = angular.module('app', [
 	'PatientsDetailsCtrl',
 	'PatientsService',
 	'PatientsAppointmentsCtrl',
-
-
-
+	
 //ng-grid
 	'ngGrid'
 ]);
