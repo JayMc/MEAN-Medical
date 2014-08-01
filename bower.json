@@ -11,6 +11,7 @@
     "lodash": "latest",
     "moment": "~2.7.0",
     "socket.io-client": "1.0.6",
-    "ng-grid": "~2.0.11"
+    "ng-grid": "~2.0.11",
+    "angular-mocks": "~1.2.21"
   }
 }
