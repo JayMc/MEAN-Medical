@@ -15,5 +15,6 @@ var app = angular.module('app', [
 	'PatientsAppointmentsCtrl',
 	
 //ng-grid
-	'ngGrid'
+	'ngGrid',
+	'xeditable'
 ]);

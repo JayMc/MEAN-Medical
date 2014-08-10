@@ -1,7 +1,39 @@
 <div class="well">
-	<h4>Details</h4>
-	<p>Name: {{patient.fullname()}}</p>
+	<div class="row">
+		<div class="col-xs-6">
+		<h4>Details</h4>
+		</div>
+		<div class="col-xs-6">
+		<button class="btn btn-primary btn-xs" ng-click="addPatient()">Add Patient</button>
+		</div>
+	</div>
 
-	<p>Age: {{patient.age}}</p>	
-	<p>Over 18? {{patient.over18()}}</p>
+	<form editable-form name="editableForm" onbeforesave="savePatient()">
+    <div>
+      <!-- editable username (text with validation) -->
+      <span class="title">First name: </span>
+      <span editable-text="patient.fname" e-name="name" onbeforesave="checkName($data)" e-required>{{ patient.fname || 'empty' }}</span>
+    </div> 
+  	<p>Name: {{patient.fullname()}}</p>
+
+  	<p>Age: {{patient.age}}</p>	
+  	<p>Over 18? {{patient.over18()}}</p>
+
+    <div class="buttons">
+      <!-- button to show form -->
+      <button type="button" class="btn btn-default" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
+        Edit
+      </button>
+      <!-- buttons to submit / cancel form -->
+      <span ng-show="editableForm.$visible">
+        <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
+          Save
+        </button>
+        <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+          Cancel
+        </button>
+      </span>
+    </div>
+    <div ng-init="setForm(editableForm)" />
+	</form>
 </div>

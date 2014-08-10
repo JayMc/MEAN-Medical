@@ -51,7 +51,7 @@ angular.module('PatientsListCtrl', ['ngGrid']).controller('PatientsListCtrl', ['
 
 	$scope.focusPatient = function(patient){
 		PatientsService.setCurrentPatient(patient);
-		//console.log();
+		console.log(PatientsService.currentPatient);
 		patient.fullname();
 		//patient.over18();
 	}

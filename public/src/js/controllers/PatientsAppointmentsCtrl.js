@@ -4,7 +4,7 @@ angular.module('PatientsAppointmentsCtrl', ['ngGrid']).controller('PatientsAppoi
 
 	$scope.$on('currentPatient.change', function(event, currentPatient){
 		//$scope.patient = currentPatient;
-		console.log(currentPatient);
+		//console.log(currentPatient);
 		currentPatient.one(currentPatient._id).getList('appointments').then(function(appointments){
 			$scope.appointments = appointments;
 		})
