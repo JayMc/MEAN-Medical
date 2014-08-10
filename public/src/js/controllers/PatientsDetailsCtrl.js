@@ -14,13 +14,17 @@ angular.module('PatientsDetailsCtrl',[]).controller('PatientsDetailsCtrl', ['$sc
 
 	$scope.checkName = function(data) {
 		console.log($scope.patient);
-	    if (data == '' || data == 'a') {
+	    if (data == '') {
 	      return "Firstname cannot be empty";
 	    }
   	};
 
-  	$scope.savePatient = function(){
+  	$scope.savePatient = function(data){
   		console.log('saved patient');
+  		console.log(data)
+  		$scope.patient.fname = data.fname;
+  		$scope.patient.sname = data.sname;
+  		$scope.patient.put();
   	}
 
   	$scope.addPatient = function(){
@@ -38,7 +42,8 @@ angular.module('PatientsDetailsCtrl',[]).controller('PatientsDetailsCtrl', ['$sc
 		}
 
 		Patient.post(newPatient).then(function(){
-			
+			//fetch new list of patients
+			PatientsService.getPatients();
 		});
 
 		//show form edit
