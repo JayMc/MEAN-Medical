@@ -1,14 +1,14 @@
-angular.module('PatientsAppointmentsCtrl', ['ngGrid']).controller('PatientsAppointmentsCtrl', ['$scope', 'PatientsService', function($scope, PatientsService){
+angular.module('PatientsAppointmentsCtrl', ['ngGrid']).controller('PatientsAppointmentsCtrl', ['$scope', 'PatientsService', 'Patient', function($scope, PatientsService, Patient){
 
 	$scope.appointments = [];
 
 	$scope.$on('currentPatient.change', function(event, currentPatient){
-		//$scope.patient = currentPatient;
-		//console.log(currentPatient);
-		currentPatient.one(currentPatient._id).getList('appointments').then(function(appointments){
+		//get appointments
+		currentPatient.getList('appointments').then(function(appointments){
+			console.log(appointments);
 			$scope.appointments = appointments;
 		})
-		//get appointments
+		
 		
 	})
 
