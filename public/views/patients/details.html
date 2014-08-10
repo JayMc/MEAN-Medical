@@ -8,11 +8,16 @@
 		</div>
 	</div>
 
-	<form editable-form name="editableForm" onbeforesave="savePatient()">
+	<form editable-form name="editableForm" onbeforesave="savePatient($data)">
     <div>
       <!-- editable username (text with validation) -->
       <span class="title">First name: </span>
-      <span editable-text="patient.fname" e-name="name" onbeforesave="checkName($data)" e-required>{{ patient.fname || 'empty' }}</span>
+      <span editable-text="patient.fname" e-name="fname" onbeforesave="checkName($data)" e-required>{{ patient.fname || 'empty' }}</span>
+    </div> 
+
+    <div>
+      <span class="title">Surname: </span>
+      <span editable-text="patient.sname" e-name="sname" onbeforesave="checkName($data)" e-required>{{ patient.sname || 'empty' }}</span>
     </div> 
   	<p>Name: {{patient.fullname()}}</p>
 
