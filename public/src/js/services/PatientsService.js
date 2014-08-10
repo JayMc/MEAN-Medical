@@ -9,6 +9,11 @@ angular.module('PatientsService', []).service('PatientsService', ['$rootScope','
 				Patient.getList().then(function(patients){
 				$rootScope.$broadcast('patientList.change', patients);
 			})
+		},
+		removePatient: function(patient){
+			patient.remove().then(function(){
+				this.getList();
+			});
 		}
 	};
 
