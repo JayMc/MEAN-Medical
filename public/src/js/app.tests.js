@@ -2,10 +2,9 @@
  
 describe("Counter tests", function () {
  
-    beforeEach(module('app'));
-
-    /*
+    //beforeEach(module('app'));
     
+    /*
     describe('PatientsListCtrl', function(){
         var scope, controller;
 
@@ -22,7 +21,20 @@ describe("Counter tests", function () {
 
     });
     */
+   
+    /*
+    describe("App Module:", function() {
+        var module;
+        beforeEach(function() {
+          module = angular.module("app");
+        });
 
+        it("should be registered", function() {
+          expect(module).not.to.equal(null);
+        });
+    });
+    */
+   
     it("gives correct result", function(){
         var num1 = 1;
         var num2 = 2;
@@ -32,7 +44,7 @@ describe("Counter tests", function () {
 
         expect(result).toBe(expected);
     })
- 
+    
     /*
     it("gives wrong result", function(){
         var num1 = 1;
