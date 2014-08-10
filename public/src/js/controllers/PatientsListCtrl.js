@@ -9,10 +9,16 @@ angular.module('PatientsListCtrl', ['ngGrid']).controller('PatientsListCtrl', ['
 		$scope.patients = patientList;
 	})
 
-	$scope.testBtn = '<button class="btn btn-default btn-xs" ng-click="testClick(row)">test</button>';
+	$scope.testBtn = 
+	'<button class="btn btn-default btn-xs" ng-click="testClick(row)">test</button>'+
+	'<button class="btn btn-default btn-xs" ng-click="deletePatient(row)">Delete</button>';
 
 	$scope.testClick = function(row){
 		console.log(row.entity);
+	}
+
+	$scope.deletePatient = function(row){
+		PatientsService.removePatient(row.entity);
 	}
 
 	$scope.gridOptions = {
