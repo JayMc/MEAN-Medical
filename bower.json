@@ -13,5 +13,11 @@
     "socket.io-client": "1.0.6",
     "ng-grid": "~2.0.11",
     "angular-mocks": "~1.2.21"
+  },
+  "resolutions": {
+    "angular": "1.2.20"
+  },
+  "devDependencies": {
+    "angular-xeditable": "~0.1.8"
   }
 }
