@@ -79,6 +79,38 @@ module.exports = function(app,_){
 		})
 	})
 
+	//update a patient
+	app.put(urlPrefix+'/patients/:id', function(req,res){
+		//if nothing to do return
+		if(req.body == null || req.body == undefined){
+			res.json(req.body)
+			return
+		}
+
+		//else continue to update patient details
+		//only update what exists in req.body
+		var updatePatient = {};
+		if(req.body.fname != null){
+			updatePatient.fname = req.body.fname;
+		}
+		if(req.body.sname != null){
+			updatePatient.sname = req.body.sname;
+		}
+		console.log(updatePatient);
+
+		Patient.findByIdAndUpdate(req.params.id, updatePatient, function(err, updatedPatient){
+			if(err) return console.error(err);
+
+			res.json(updatedPatient);
+		})
+	});
+
+	app.del(urlPrefix+'/patients/:id', function(req,res){
+		Patient.find({_id:req.params.id}).remove(function(err){
+			res.json(err);
+		});
+	})
+
 
 //////////////////////////////
 //Appointments
