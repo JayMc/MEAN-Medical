@@ -31,6 +31,18 @@ module.exports = function(grunt) {
       }
     },
 
+    concat: {
+      options: {
+        separator: ';',
+      },
+      dist: {
+        src: ['public/src/js/**/*.js',
+              'public/src/js/*.js',
+              '!public/src/js/*.tests.js'],
+        dest: 'public/dist/js/app.js'
+      }
+    },
+
     //CSS stuff ----------------------------------
     //less file to main.css
     less: {
@@ -61,7 +73,7 @@ module.exports = function(grunt) {
       },
       js: {
         files: ['public/src/js/**/*.js'],
-        tasks: ['jshint', 'uglify'],
+        tasks: ['jshint', 'uglify', 'concat'],
         options: {
           livereload: true,
         }
@@ -90,6 +102,7 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
@@ -98,6 +111,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('grunt-karma');
 
-  grunt.registerTask('default', [ 'less', 'cssmin', 'jshint', 'uglify', 'concurrent']);
+  grunt.registerTask('default', [ 'less', 'cssmin', 'jshint', 'uglify', 'concat', 'concurrent']);
 
 };
