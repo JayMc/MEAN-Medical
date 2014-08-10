@@ -1,8 +1,13 @@
-angular.module('PatientsListCtrl', ['ngGrid']).controller('PatientsListCtrl', ['$scope', 'PatientsService', 'Patient', function($scope, PatientsService, Patient){
+angular.module('PatientsListCtrl', ['ngGrid']).controller('PatientsListCtrl', ['$scope', 'PatientsService', function($scope, PatientsService){
 
 	$scope.filterOptions = {
 		filterText: ''
 	};
+
+	//when patient list changes update this local scope or patients
+	$scope.$on('patientList.change', function(event,patientList){
+		$scope.patients = patientList;
+	})
 
 	$scope.testBtn = '<button class="btn btn-default btn-xs" ng-click="testClick(row)">test</button>';
 
@@ -56,12 +61,7 @@ angular.module('PatientsListCtrl', ['ngGrid']).controller('PatientsListCtrl', ['
 		//patient.over18();
 	}
 
-	$scope.loadPatients = function(){
-		console.log('sdfg');
-		Patient.getList().then(function(patients){
-			$scope.patients = patients;
-		})
-	};
-	$scope.loadPatients();
+	//fetch all patients
+	PatientsService.getPatients();
 
 }]);
