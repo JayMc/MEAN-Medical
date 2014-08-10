@@ -9,15 +9,10 @@ angular.module('PatientsListCtrl', ['ngGrid']).controller('PatientsListCtrl', ['
 		$scope.patients = patientList;
 	})
 
-	$scope.testBtn = 
-	'<button class="btn btn-default btn-xs" ng-click="testClick(row)">test</button>'+
-	'<button class="btn btn-default btn-xs" ng-click="deletePatient(row)">Delete</button>';
+	$scope.btns = '<button class="btn btn-default btn-xs" ng-click="deletePatient($event, row)">Delete</button>';
 
-	$scope.testClick = function(row){
-		console.log(row.entity);
-	}
-
-	$scope.deletePatient = function(row){
+	$scope.deletePatient = function(event, row){
+		event.stopPropagation();
 		PatientsService.removePatient(row.entity);
 	}
 
@@ -51,7 +46,7 @@ angular.module('PatientsListCtrl', ['ngGrid']).controller('PatientsListCtrl', ['
 			},
 			{
 				displayName: 'Actions',
-				cellTemplate: $scope.testBtn,
+				cellTemplate: $scope.btns,
 				cellClass: 'gridCell',
 				headerClass: 'gridHeader'
 			}
