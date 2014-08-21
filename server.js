@@ -8,6 +8,7 @@ var server = http.createServer(app);
 
 //config
 var db = require('./config/db.js');
+var port = 8080;
 
 mongoose.connect(db.url);
 
@@ -43,4 +44,5 @@ app.use(function (req, res, next) {
 // routes ==================================================
 require('./app/routes')(app, _);
 
-server.listen(8080);
+server.listen(port);
+console.log('listening on '+port);
