@@ -16,5 +16,8 @@ var app = angular.module('app', [
 	
 //ng-grid
 	'ngGrid',
-	'xeditable'
+	'xeditable',
+
+//Directives
+	'newPatientModal'
 ]);
