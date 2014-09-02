@@ -4,6 +4,46 @@ angular.module('PatientsListCtrl', ['ngGrid']).controller('PatientsListCtrl', ['
 		filterText: ''
 	};
 
+	$scope.newPatient = {
+		fname: 'new name',
+		sname: 'svsd'
+	}
+
+	/*$scope.modalShown = false;
+	$scope.toggleModal = function(){
+		$scope.modalShown = !$scope.modalShown;
+	}
+	$scope.saveNewPatient = function(){
+		PatientsService.createPatient('thing');
+	}
+	*/
+
+	$scope.modalShown = false;
+	$scope.addPatient = function() {
+	 	 /*
+		PatientsService.setCurrentPatient({
+			age: 0,
+			fname: ''
+		});
+		*/
+/*
+		var newPatient = {
+			fname: 'Zor',
+			age: 99
+		}
+
+		Patient.post(newPatient).then(function(){
+			//fetch new list of patients
+			PatientsService.getPatients();
+		});
+		*/
+	 	PatientsService.setCurrentPatient(null);
+	  	$scope.modalShown = !$scope.modalShown;
+	};
+	$scope.confirmCtrl = function () {
+	    alert('confirmed');
+	}
+
 	//when patient list changes update this local scope or patients
 	$scope.$on('patientList.change', function(event,patientList){
 		$scope.patients = patientList;

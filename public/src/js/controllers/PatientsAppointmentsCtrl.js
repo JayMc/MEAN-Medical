@@ -4,10 +4,14 @@ angular.module('PatientsAppointmentsCtrl', ['ngGrid']).controller('PatientsAppoi
 
 	$scope.$on('currentPatient.change', function(event, currentPatient){
 		//get appointments
-		currentPatient.getList('appointments').then(function(appointments){
-			console.log(appointments);
-			$scope.appointments = appointments;
-		})
+		if(currentPatient != null){
+			currentPatient.getList('appointments').then(function(appointments){
+				console.log(appointments);
+				$scope.appointments = appointments;
+			})
+		}else{
+			$scope.appointments = [];
+		}
 		
 		
 	})
@@ -17,7 +21,7 @@ angular.module('PatientsAppointmentsCtrl', ['ngGrid']).controller('PatientsAppoi
 		//selectedItem: 
 		//afterSelectionChange: function(rowItem, event){
 		beforeSelectionChange: function(rowItem, event){
-			$scope.focusPatient(rowItem.entity);
+			$scope.focusAppointment(rowItem.entity);
 		},
 		columnDefs: [
 			{
@@ -28,6 +32,10 @@ angular.module('PatientsAppointmentsCtrl', ['ngGrid']).controller('PatientsAppoi
 			}
 		],
 		multiSelect: false
+	}
+
+	$scope.focusAppointment = function(appointment){
+		
 	}
 
 }])

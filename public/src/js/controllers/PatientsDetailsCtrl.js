@@ -27,28 +27,4 @@ angular.module('PatientsDetailsCtrl',[]).controller('PatientsDetailsCtrl', ['$sc
   		$scope.patient.put();
   	}
 
-  	$scope.addPatient = function(){
-  		//clear current patien
-  		/*
-		PatientsService.setCurrentPatient({
-			age: 0,
-			fname: ''
-		});
-		*/
-
-		var newPatient = {
-			fname: 'Zor',
-			age: 99
-		}
-
-		Patient.post(newPatient).then(function(){
-			//fetch new list of patients
-			PatientsService.getPatients();
-		});
-
-		//show form edit
-		$scope.form.$show();
-  	}
-
-
 }])

@@ -1,9 +1,10 @@
-angular.module('newPatientModal',[]).directive('newPatientModal', function(PatientsService){
+angular.module('newPatientModal',[]).directive('newPatientModal', function(PatientsService, Patient){
 	return {
  		restrict: 'A',
-        scope: {
-            modalVisible: '=',
-           // corfirm: '&'
+        scope: { //isolates scope from parent
+            modalVisible: '=', //2 way binding, both parent and directive can change state causing the modal to hide/show
+            confirm: '&' //access to parent scope function
+            newPatient: {}
         },
         //replace: true, 
         //transclude: true, 
@@ -12,6 +13,7 @@ angular.module('newPatientModal',[]).directive('newPatientModal', function(Patie
             scope.show = false;
         	};
             */
+           //scope.newPatient.fname = '';
         
             scope.showModal = function(visible){
                 if(visible){
@@ -42,11 +44,18 @@ angular.module('newPatientModal',[]).directive('newPatientModal', function(Patie
 
            
                       
-           scope.save = function(){
-                console.log('dfsg');
+            scope.save = function(){
+                //scope.confirm(); //calls parent function
+                //$scope.patient.fname = newPatient.fname;
+                //$scope.patient.sname = newPatient.sname;
+                //$scope.patient.post();      
+                PatientsService.createPatient({fname: 'z',sname:'w'});          
            }
            
      	},
+        controller: function(){
+
+        },
 		templateUrl: 'views/patients/newPatientModal.html',
 	}
 })

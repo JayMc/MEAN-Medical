@@ -12,8 +12,12 @@ angular.module('PatientsService', []).service('PatientsService', ['$rootScope','
 		},
 		removePatient: function(patient){
 			patient.remove().then(function(){
+				//refresh list
 				this.getList();
 			});
+		},
+		createPatient: function(newPatient){
+			console.log(newPatient);
 		}
 	};
 
